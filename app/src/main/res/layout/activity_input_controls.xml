@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.alex.view.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Borderless Button" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="cutstom action button"
+            android:imeActionLabel="OK"
+            android:imeOptions="actionSearch"
+            android:inputType="numberDecimal" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoComp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="AutoCompleteTextView" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckBoxChecked"
+                android:text="A" />
+
+            <CheckBox
+                android:id="@+id/checkB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckBoxChecked"
+                android:text="B" />
+
+            <CheckBox
+                android:id="@+id/checkC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckBoxChecked"
+                android:text="C" />
+
+            <CheckBox
+                android:id="@+id/checkD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckBoxChecked"
+                android:text="D" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/optA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonChecked"
+                android:text="A" />
+
+            <RadioButton
+                android:id="@+id/optB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonChecked"
+                android:text="B" />
+
+            <RadioButton
+                android:id="@+id/optC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonChecked"
+                android:text="C" />
+
+            <RadioButton
+                android:id="@+id/optD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonChecked"
+                android:text="D" />
+        </RadioGroup>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="OFF"
+            android:textOn="ON" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/timePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showDialog"
+            android:text="TimePickerDialog" />
+
+        <Button
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showDialog"
+            android:text="DatePickerDialog" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,6 +3,20 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
     <string name="hold_fragment">Hold the fragments</string>
+    <string name="title_bar_text">API Guides</string>
+    <string name="not_activity">No Activity</string>
+
+    <string-array name="country">
+        <item>China</item>
+        <item>America</item>
+        <item>British</item>
+        <item>England</item>
+        <item>你好</item>
+        <item>天气</item>
+        <item>女朋友</item>
+        <item>公司</item>
+    </string-array>
 
 </resources>

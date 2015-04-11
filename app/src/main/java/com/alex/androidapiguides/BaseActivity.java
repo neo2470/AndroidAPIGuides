@@ -3,22 +3,25 @@ package com.alex.androidapiguides;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 
+import com.alex.view.TitleBar;
+
 /**
- * Created by alex on 15-4-10.
- * hold all of the fragments.
+ * Created by alex on 15-4-11.
+ * All of the activity classes in this app extend this activity.
  */
-public class LearnActivity extends Activity {
+public class BaseActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_learn);
+    }
 
+    protected void changeTitle() {
         Intent intent = getIntent();
-        Log.d("Debug", intent.getStringExtra("topic"));
+        TitleBar titleBar = (TitleBar) findViewById(R.id.titleBar);
+        titleBar.setTitle(intent.getStringExtra("topic"));
     }
 }
