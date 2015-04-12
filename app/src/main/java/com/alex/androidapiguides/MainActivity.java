@@ -39,10 +39,12 @@ public class MainActivity extends BaseActivity {
             case 2:
                 act = ToastsActivity.class;
                 break;
+            case 3:
+                act = MenusActivity.class;
         }
 
         if (null == act) {
-            Toast.makeText(this, getString(R.string.not_activity), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.not_finished), Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(this, act);
             intent.putExtra("topic", data[id]);

@@ -6,7 +6,7 @@
 
     <string name="hold_fragment">Hold the fragments</string>
     <string name="title_bar_text">API Guides</string>
-    <string name="not_activity">No Activity</string>
+    <string name="not_finished">Not Finished</string>
 
     <string-array name="country">
         <item>China</item>
