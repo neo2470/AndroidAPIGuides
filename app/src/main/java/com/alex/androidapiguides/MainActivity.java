@@ -36,6 +36,9 @@ public class MainActivity extends BaseActivity {
             case 1:
                 act = InputControlsActivity.class;
                 break;
+            case 2:
+                act = ToastsActivity.class;
+                break;
         }
 
         if (null == act) {
@@ -49,6 +52,16 @@ public class MainActivity extends BaseActivity {
 
     private final String[] data = {
             "Layouts",
-            "Input Controls"
+            "Input Controls",
+            "Toasts",
+            "Menus",
+            "Action Bars",
+            "Settings",
+            "Dialogs",
+            "Notifications",
+            "Search",
+            "Accessibility",
+            "Styles and Themes",
+            "Custom Component"
     };
 }
