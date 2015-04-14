@@ -2,12 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <com.alex.view.TitleBar
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:id="@+id/floatMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#550000ff"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Floating Context Menu"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/individual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5500ff00"
+        android:padding="5dp"
+        android:text="Enabling the contextual action mode for individual views \n\n1.Implement the ActionMode.Callback interface. In its callback methods, you can specify the actions for the contextual action bar, respond to click events on action items, and handle other lifecycle events for the action mode." />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showPopupMenu"
+        android:text="Popup Menu" />
+
+    <ListView
+        android:id="@+id/batch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

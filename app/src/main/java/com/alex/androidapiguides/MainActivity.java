@@ -16,7 +16,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         ListView listView = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,10 +47,12 @@ public class MainActivity extends BaseActivity {
             Toast.makeText(this, getString(R.string.not_finished), Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(this, act);
-            intent.putExtra("topic", data[id]);
+            intent.putExtra(TOPIC, data[id]);
             startActivity(intent);
         }
     }
+
+    public final static String TOPIC = "com.alex.androidapiguides.TOPIC";
 
     private final String[] data = {
             "Layouts",
