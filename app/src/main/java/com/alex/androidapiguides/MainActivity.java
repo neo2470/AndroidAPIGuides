@@ -41,6 +41,10 @@ public class MainActivity extends BaseActivity {
                 break;
             case 3:
                 act = MenusActivity.class;
+                break;
+            case 4:
+                act = ActionBarActivity.class;
+                break;
         }
 
         if (null == act) {
@@ -55,17 +59,17 @@ public class MainActivity extends BaseActivity {
     public final static String TOPIC = "com.alex.androidapiguides.TOPIC";
 
     private final String[] data = {
-            "Layouts",
-            "Input Controls",
-            "Toasts",
-            "Menus",
-            "Action Bars",
-            "Settings",
-            "Dialogs",
-            "Notifications",
-            "Search",
-            "Accessibility",
-            "Styles and Themes",
-            "Custom Component"
+            "Layouts",//0
+            "Input Controls",//1
+            "Toasts",//2
+            "Menus",//3
+            "Action Bar",//4
+            "Settings",//5
+            "Dialogs",//6
+            "Notifications",//7
+            "Search",//8
+            "Accessibility",//9
+            "Styles and Themes",//10
+            "Custom Component"//11
     };
 }

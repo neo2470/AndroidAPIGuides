@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="Search"
+        android:actionViewClass="android.widget.SearchView"/>
+
+    <item
+        android:id="@+id/share"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Sahre"
+        android:showAsAction="ifRoom"
+        android:actionProviderClass="android.widget.ShareActionProvider"/>
+
+    <item
+        android:id="@+id/add"
+        android:title="Add"
+        android:icon="@android:drawable/ic_menu_add"/>
+
+    <item
+        android:id="@+id/help"
+        android:title="Help"
+        android:icon="@android:drawable/ic_menu_help"/>
+
+</menu>
