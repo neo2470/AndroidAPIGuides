@@ -2,6 +2,8 @@ package com.alex.androidapiguides;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ShareActionProvider;
 import android.widget.Toast;
+
+import com.alex.fragment.TabOneFragment;
+import com.alex.fragment.TabThreeFragment;
+import com.alex.fragment.TabTwoFragment;
 
 /**
  * Created by alex on 15-4-16.
@@ -23,6 +29,25 @@ public class ActionBarActivity extends Activity implements MenuItem.OnActionExpa
         setContentView(R.layout.activity_action_bar);
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        // Add Navigation Tab
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        ActionBar.Tab tab = actionBar.newTab()
+                .setText("One")
+                .setTabListener(new TabListener<TabOneFragment>("One", TabOneFragment.class));
+        actionBar.addTab(tab);
+
+        tab = actionBar.newTab()
+                .setText("Two")
+                .setTabListener(new TabListener<TabTwoFragment>("Two", TabTwoFragment.class));
+        actionBar.addTab(tab);
+
+        tab = actionBar.newTab()
+                .setText("Three")
+                .setTabListener(new TabListener<TabThreeFragment>("Three", TabThreeFragment.class));
+        actionBar.addTab(tab);
     }
 
     @Override
@@ -84,5 +109,39 @@ public class ActionBarActivity extends Activity implements MenuItem.OnActionExpa
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("image/*");
         return intent;
+    }
+
+    private class TabListener<T extends Fragment> implements ActionBar.TabListener {
+
+        public TabListener(String tag, Class<T> clz) {
+            mTag = tag;
+            mClass = clz;
+        }
+
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+            if (null == mFragment) {
+                mFragment = Fragment.instantiate(ActionBarActivity.this, mClass.getName());
+                ft.add(android.R.id.content, mFragment, mTag);
+            } else {
+                ft.attach(mFragment);
+            }
+        }
+
+        @Override
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+            if(null != mFragment) {
+                ft.detach(mFragment);
+            }
+        }
+
+        @Override
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+        }
+
+        private Fragment mFragment;
+        private final Class<T> mClass;
+        private String mTag;
     }
 }
