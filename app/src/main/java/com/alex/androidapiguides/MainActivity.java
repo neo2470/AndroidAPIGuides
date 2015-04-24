@@ -45,6 +45,9 @@ public class MainActivity extends BaseActivity {
             case 4:
                 act = ActionBarActivity.class;
                 break;
+            case 5:
+                act = SettingsActivity.class;
+                break;
         }
 
         if (null == act) {
