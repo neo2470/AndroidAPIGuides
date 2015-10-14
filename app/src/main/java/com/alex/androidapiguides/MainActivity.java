@@ -48,6 +48,9 @@ public class MainActivity extends BaseActivity {
             case 5:
                 act = SettingsActivity.class;
                 break;
+            case 12:
+                act = IntentActivity.class;
+                break;
         }
 
         if (null == act) {
@@ -73,6 +76,7 @@ public class MainActivity extends BaseActivity {
             "Search",//8
             "Accessibility",//9
             "Styles and Themes",//10
-            "Custom Component"//11
+            "Custom Component",//11
+            "Intent",//12
     };
 }

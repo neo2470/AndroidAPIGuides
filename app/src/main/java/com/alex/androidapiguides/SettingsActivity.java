@@ -7,7 +7,6 @@ import com.alex.fragment.SettingsFragment;
 
 /**
  * Created by alex on 15-4-24.
- *
  */
 public class SettingsActivity extends BaseActivity {
 
