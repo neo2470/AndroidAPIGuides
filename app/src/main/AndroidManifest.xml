@@ -3,6 +3,7 @@
     package="com.alex.androidapiguides">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
