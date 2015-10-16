@@ -1,12 +1,15 @@
 package com.alex.androidapiguides;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Toast;
 
 import com.alex.entity.PeopleParcelable;
 import com.alex.entity.PeopleSerializable;
@@ -174,6 +177,32 @@ public class IntentActivity extends BaseActivity {
                }
                break;
            }
+
+           case R.id.btn12 : {
+               Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+
+               if(null != intent.resolveActivity(getPackageManager())) {
+                   startActivityForResult(intent, PICK_CONTACTS_REQUEST);
+               }
+           }
        }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(RESULT_OK == resultCode) {
+            if(PICK_CONTACTS_REQUEST == requestCode) {
+                Cursor cursor = getContentResolver().query(data.getData(), new String[] {ContactsContract.Contacts.DISPLAY_NAME}, null, null, null);
+
+                if(cursor.moveToFirst()) {
+                    String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                    Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    private final int PICK_CONTACTS_REQUEST = 1;
 }
