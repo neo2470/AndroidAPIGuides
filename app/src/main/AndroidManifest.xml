@@ -57,6 +57,7 @@
                 <data android:scheme="http" android:host="www.baidu.com" />
             </intent-filter>
         </activity>
+        <activity android:name=".FragmentActivity" />
     </application>
 
 </manifest>

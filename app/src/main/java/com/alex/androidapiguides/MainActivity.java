@@ -51,6 +51,9 @@ public class MainActivity extends BaseActivity {
             case 12:
                 act = IntentActivity.class;
                 break;
+            case 14:
+                act = FragmentActivity.class;
+                break;
         }
 
         if (null == act) {
@@ -78,5 +81,7 @@ public class MainActivity extends BaseActivity {
             "Styles and Themes",//10
             "Custom Component",//11
             "Intent",//12
+            "Activity",//13
+            "Fragment",//14
     };
 }
