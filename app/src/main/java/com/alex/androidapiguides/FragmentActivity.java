@@ -27,7 +27,7 @@ public class FragmentActivity extends BaseActivity implements AFragment.OnBtnACl
                 aFragment = new AFragment();
             }
             FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.content, aFragment, AFragment.TAG);
+            ft.add(R.id.content, aFragment, AFragment.TAG);
             ft.commit();
         }
     }
@@ -41,8 +41,11 @@ public class FragmentActivity extends BaseActivity implements AFragment.OnBtnACl
             bFragment = new BFragment();
         }
 
+        AFragment aFragment = (AFragment) fm.findFragmentByTag(AFragment.TAG);
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content, bFragment, BFragment.TAG);
+        ft.hide(aFragment);
+
+        ft.add(R.id.content, bFragment, BFragment.TAG);
         ft.addToBackStack(null);
         ft.commit();
     }
@@ -56,8 +59,10 @@ public class FragmentActivity extends BaseActivity implements AFragment.OnBtnACl
             cFragment = new CFragment();
         }
 
+        BFragment bFragment = (BFragment) fm.findFragmentByTag(BFragment.TAG);
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content, cFragment, CFragment.TAG);
+        ft.hide(bFragment);
+        ft.add(R.id.content, cFragment, CFragment.TAG);
         ft.addToBackStack(null);
         ft.commit();
     }

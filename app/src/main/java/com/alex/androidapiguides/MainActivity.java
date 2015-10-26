@@ -54,6 +54,9 @@ public class MainActivity extends BaseActivity {
             case 14:
                 act = FragmentActivity.class;
                 break;
+            case 15:
+                act = LoaderActivity.class;
+                break;
         }
 
         if (null == act) {
@@ -83,5 +86,6 @@ public class MainActivity extends BaseActivity {
             "Intent",//12
             "Activity",//13
             "Fragment",//14
+            "Loader",//15
     };
 }
