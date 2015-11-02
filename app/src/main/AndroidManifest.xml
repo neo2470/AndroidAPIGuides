@@ -60,6 +60,9 @@
         </activity>
         <activity android:name=".FragmentActivity" />
         <activity android:name=".LoaderActivity" />
+        <activity android:name=".ServiceActivity" />
+
+        <service android:name="com.alex.entity.IntentServiceTest" />
     </application>
 
 </manifest>

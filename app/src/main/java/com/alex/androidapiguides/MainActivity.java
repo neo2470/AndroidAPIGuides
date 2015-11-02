@@ -57,6 +57,9 @@ public class MainActivity extends BaseActivity {
             case 15:
                 act = LoaderActivity.class;
                 break;
+            case 16:
+                act = ServiceActivity.class;
+                break;
         }
 
         if (null == act) {
@@ -87,5 +90,6 @@ public class MainActivity extends BaseActivity {
             "Activity",//13
             "Fragment",//14
             "Loader",//15
+            "Service",//16
     };
 }
