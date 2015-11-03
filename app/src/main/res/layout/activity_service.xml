@@ -5,6 +5,14 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/simpleServiceBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simple Service"
+        android:textAllCaps="false"
+        android:onClick="onClick"/>
+
+    <Button
         android:id="@+id/intentServiceBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +24,23 @@
         android:id="@+id/serviceBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Service"
+        android:text="Hello Service"
+        android:textAllCaps="false"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/serviceBinderBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service Use Binder"
+        android:textAllCaps="false"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/serviceMessengerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service Use Messenger"
         android:textAllCaps="false"
         android:onClick="onClick"/>
 

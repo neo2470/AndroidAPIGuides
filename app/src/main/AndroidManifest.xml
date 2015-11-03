@@ -62,7 +62,11 @@
         <activity android:name=".LoaderActivity" />
         <activity android:name=".ServiceActivity" />
 
+        <service android:name="com.alex.entity.SimpleService" />
         <service android:name="com.alex.entity.IntentServiceTest" />
+        <service android:name="com.alex.entity.HelloService" />
+        <service android:name="com.alex.entity.LocalService" />
+        <service android:name="com.alex.entity.MessengerService" />
     </application>
 
 </manifest>
