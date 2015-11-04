@@ -5,17 +5,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alex.entity.HelloService;
 import com.alex.entity.IntentServiceTest;
 import com.alex.entity.LocalService;
 import com.alex.entity.MessengerService;
+import com.alex.entity.TimerService;
 
 /**
  * Created by alex on 15-10-29.
@@ -26,6 +29,19 @@ public class ServiceActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
+
+        final TextView counter = (TextView) findViewById(R.id.counter);
+        Handler handler = new Handler() {
+
+            @Override
+            public void handleMessage(Message msg) {
+                if(msg.what == TimerService.MSG_COUNTER) {
+                    counter.setText(msg.arg1);
+                }
+            }
+        };
+
+        mReceiver = new Messenger(handler);
     }
 
     @Override
@@ -35,8 +51,8 @@ public class ServiceActivity extends BaseActivity {
 //        Intent intent = new Intent(this, LocalService.class);
 //        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
-        Intent intent1 = new Intent(this, MessengerService.class);
-        bindService(intent1, mConnection1, Context.BIND_AUTO_CREATE);
+//        Intent intent1 = new Intent(this, MessengerService.class);
+//        bindService(intent1, mConnection1, Context.BIND_AUTO_CREATE);
     }
 
     @Override
@@ -51,6 +67,10 @@ public class ServiceActivity extends BaseActivity {
         if(mBound1) {
             unbindService(mConnection1);
             mBound1 = false;
+        }
+
+        if(null != mConnection2) {
+            unbindService(mConnection2);
         }
     }
 
@@ -108,6 +128,21 @@ public class ServiceActivity extends BaseActivity {
                 }
                 break;
             }
+            case R.id.timerServiceBtn : {
+                Intent intent = new Intent(this, TimerService.class);
+                bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+
+                Message msg = Message.obtain();
+                msg.what = ServiceActivity.SENDER;
+                msg.replyTo = mReceiver;
+
+                try {
+                    mSender.send(msg);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
         }
     }
 
@@ -141,8 +176,23 @@ public class ServiceActivity extends BaseActivity {
         }
     };
 
+    private ServiceConnection mConnection2 = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            mSender = new Messenger(service);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mSender = null;
+        }
+    };
+
     private boolean mBound;
     private boolean mBound1;
     private LocalService mLocalService;
     private Messenger mMessenger;
+    private Messenger mSender, mReceiver;
+    public static final int SENDER = 0x484884;
 }
