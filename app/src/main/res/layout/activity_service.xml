@@ -45,20 +45,19 @@
         android:onClick="onClick"/>
 
     <Button
-        android:id="@+id/timerServiceBtn"
+        android:id="@+id/timerActivityBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Timer Task in a Service"
+        android:text="Timer by Service"
         android:textAllCaps="false"
         android:onClick="onClick"/>
 
-    <TextView
-        android:id="@+id/counter"
+    <Button
+        android:id="@+id/musicServiceBtn"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="10"
-        android:gravity="center"
-        android:textSize="80sp"/>
+        android:layout_height="wrap_content"
+        android:text="Play Music by Service"
+        android:textAllCaps="false"
+        android:onClick="onClick"/>
 
 </LinearLayout>
